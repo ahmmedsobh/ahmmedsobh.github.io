@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="صلّ على النبي"/>
+  <meta name="theme-color" content="#0d3b2e"/>
+  <title>الصلاة على النبي ﷺ</title>
+
+  <script>
+    const md={name:"الصلاة على النبي ﷺ",short_name:"صلّ على النبي",start_url:"./",display:"standalone",background_color:"#0d3b2e",theme_color:"#0d3b2e",orientation:"portrait",lang:"ar",dir:"rtl",icons:[{src:"data:image/svg+xml,"+encodeURIComponent("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' fill='#0d3b2e' rx='60'/><text x='256' y='360' font-size='300' text-anchor='middle' fill='#c9a84c'>☪</text></svg>"),sizes:"512x512",type:"image/svg+xml",purpose:"any maskable"}]};
+    document.write('<link rel="manifest" href="'+URL.createObjectURL(new Blob([JSON.stringify(md)],{type:'application/json'}))+'">')
+  </script>
+
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%230d3b2e' rx='36'/%3E%3Ctext x='90' y='130' font-size='110' text-anchor='middle' fill='%23c9a84c'%3E%E2%98%AA%3C/text%3E%3C/svg%3E"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root{
+      --gold:#c9a84c; --gold-light:#e8cc7a; --gold-dark:#8a6a1e;
+      --green-deep:#0d3b2e; --green-mid:#1a5c42; --green-light:#2d7a58;
+      --cream:#f5eed8; --text-dark:#1a0e00;
+      --shadow-gold:rgba(201,168,76,0.4);
+      --sat:env(safe-area-inset-top,0px);
+      --sab:env(safe-area-inset-bottom,0px);
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+    html{height:100%;}
+    body{
+      background:var(--green-deep);color:var(--cream);
+      font-family:'Tajawal',sans-serif;
+      min-height:100vh;min-height:-webkit-fill-available;
+      overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+      padding-top:var(--sat);
+    }
+    body::before{
+      content:'';position:fixed;inset:0;
+      background-image:
+        radial-gradient(circle at 15% 15%,rgba(201,168,76,.07) 0%,transparent 55%),
+        radial-gradient(circle at 85% 85%,rgba(45,122,88,.1) 0%,transparent 55%),
+        url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c9a84c' stroke-width='0.4' opacity='0.1'%3E%3Cpolygon points='40,5 55,20 55,60 40,75 25,60 25,20'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3Cline x1='40' y1='0' x2='40' y2='80'/%3E%3Cline x1='0' y1='40' x2='80' y2='40'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events:none;z-index:0;
+    }
+
+    .container{
+      position:relative;z-index:1;
+      max-width:520px;margin:0 auto;
+      padding:24px 20px calc(40px + var(--sab));
+      display:flex;flex-direction:column;align-items:center;gap:22px;
+    }
+
+    /* HEADER */
+    .header{text-align:center;animation:fadeDown .7s ease;}
+    .bismillah{font-family:'Scheherazade New',serif;font-size:clamp(1.6rem,5.5vw,2.2rem);color:var(--gold-light);line-height:1.7;text-shadow:0 0 24px var(--shadow-gold);}
+    .title{font-size:clamp(1.2rem,4.5vw,1.6rem);font-weight:800;color:var(--cream);margin-top:4px;}
+    .hadith{font-size:clamp(.85rem,3vw,.98rem);color:var(--gold);opacity:.8;margin-top:6px;line-height:1.8;}
+
+    .divider{width:100%;display:flex;align-items:center;gap:10px;}
+    .divider::before,.divider::after{content:'';flex:1;height:1px;background:linear-gradient(to left,transparent,var(--gold),transparent);}
+    .divider span{color:var(--gold);font-size:.9rem;}
+
+    /* SALAWAT CARD */
+    .salawat-card{
+      width:100%;
+      background:linear-gradient(145deg,rgba(26,92,66,.5),rgba(13,59,46,.85));
+      border:1px solid rgba(201,168,76,.28);border-radius:20px;
+      padding:24px 20px;
+      box-shadow:0 8px 40px rgba(0,0,0,.3),inset 0 1px 0 rgba(201,168,76,.15);
+      animation:fadeUp .8s ease;position:relative;overflow:hidden;
+    }
+    .salawat-card::before{content:'❁';position:absolute;top:10px;left:14px;font-size:1.1rem;color:var(--gold);opacity:.3;}
+    .salawat-card::after{content:'❁';position:absolute;top:10px;right:14px;font-size:1.1rem;color:var(--gold);opacity:.3;}
+    .salawat-text{font-family:'Scheherazade New',serif;font-size:clamp(1.3rem,4.5vw,1.7rem);line-height:2.4;text-align:center;color:var(--cream);direction:rtl;}
+    .salawat-text .hl{color:var(--gold-light);font-weight:700;}
+
+    /* COUNTER */
+    .counter-wrap{display:flex;flex-direction:column;align-items:center;gap:16px;width:100%;animation:fadeUp .9s ease .1s both;}
+
+    .level-badge{
+      display:inline-flex;align-items:center;gap:7px;
+      background:linear-gradient(135deg,var(--gold-dark),var(--gold));
+      color:var(--text-dark);padding:7px 22px;border-radius:30px;
+      font-size:clamp(.95rem,3.2vw,1.1rem);font-weight:700;
+      box-shadow:0 4px 14px var(--shadow-gold);
+    }
+
+    .progress-block{width:100%;}
+    .progress-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;}
+    .progress-label{font-size:clamp(.88rem,2.9vw,1rem);color:var(--gold);opacity:.85;font-weight:600;}
+    .progress-pct{font-size:clamp(.98rem,3.2vw,1.12rem);color:var(--gold-light);font-weight:800;}
+    .progress-wrap{background:rgba(0,0,0,.3);border-radius:30px;height:12px;overflow:hidden;border:1px solid rgba(201,168,76,.18);}
+    .progress-bar{height:100%;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));border-radius:30px;transition:width .45s cubic-bezier(.34,1.56,.64,1);box-shadow:0 0 10px var(--shadow-gold);width:0%;}
+
+    /* MAIN BUTTON */
+    .btn-wrap{position:relative;display:inline-block;}
+    .tasbih-btn{
+      width:clamp(165px,46vw,200px);height:clamp(165px,46vw,200px);
+      border-radius:50%;border:none;cursor:pointer;
+      background:radial-gradient(circle at 35% 35%,#2d7a58,#0d3b2e);
+      box-shadow:0 0 0 6px rgba(201,168,76,.22),0 0 0 13px rgba(201,168,76,.08),0 16px 50px rgba(0,0,0,.5),inset 0 2px 4px rgba(255,255,255,.1);
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+      transition:transform .12s ease,box-shadow .12s ease;
+      position:relative;overflow:hidden;
+      touch-action:manipulation;user-select:none;-webkit-user-select:none;
+    }
+    .tasbih-btn::before{content:'';position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.14),transparent 60%);pointer-events:none;}
+    .tasbih-btn:active,.tasbih-btn.pressed{transform:scale(.92);box-shadow:0 0 0 4px rgba(201,168,76,.3),0 6px 24px rgba(0,0,0,.5),inset 0 2px 10px rgba(0,0,0,.4);}
+    .btn-icon{font-size:clamp(2rem,6.5vw,2.6rem);color:var(--gold-light);line-height:1;text-shadow:0 0 14px var(--shadow-gold);}
+    .btn-count{font-family:'Tajawal',sans-serif;font-size:clamp(2.5rem,8.5vw,3.4rem);font-weight:900;color:var(--cream);line-height:1;text-shadow:0 2px 8px rgba(0,0,0,.5);}
+    .btn-label{font-size:clamp(.85rem,3vw,1rem);color:var(--gold);font-weight:700;opacity:.9;}
+
+    .ripple{position:absolute;border-radius:50%;background:rgba(201,168,76,.35);animation:ripple-anim .6s ease-out forwards;pointer-events:none;}
+    @keyframes ripple-anim{from{transform:scale(0);opacity:1;}to{transform:scale(3.2);opacity:0;}}
+    .pulse-ring{position:absolute;inset:-12px;border-radius:50%;border:2px solid var(--gold);animation:pulse-ring .85s ease-out forwards;pointer-events:none;}
+    @keyframes pulse-ring{from{transform:scale(.88);opacity:1;}to{transform:scale(1.6);opacity:0;}}
+    .milestone-glow{animation:mglow .65s ease;}
+    @keyframes mglow{0%,100%{box-shadow:0 0 0 6px rgba(201,168,76,.22),0 0 0 13px rgba(201,168,76,.08),0 16px 50px rgba(0,0,0,.5);}50%{box-shadow:0 0 0 10px rgba(201,168,76,.55),0 0 0 22px rgba(201,168,76,.2),0 16px 60px rgba(201,168,76,.4);}}
+
+    /* ACTIONS */
+    .action-row{display:flex;gap:10px;justify-content:center;}
+    .action-btn{
+      background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.28);
+      color:var(--gold-light);padding:11px 28px;border-radius:30px;cursor:pointer;
+      font-family:'Tajawal',sans-serif;font-size:clamp(.95rem,3.2vw,1.08rem);font-weight:700;
+      transition:all .2s;touch-action:manipulation;
+    }
+    .action-btn:hover,.action-btn:active{background:rgba(201,168,76,.22);border-color:var(--gold);}
+    .action-btn.danger{color:#e07070;border-color:rgba(224,112,112,.28);}
+    .action-btn.danger:active{background:rgba(224,112,112,.14);}
+
+    /* GOAL INPUT */
+    .goal-section{
+      width:100%;
+      background:rgba(26,92,66,.35);border:1px solid rgba(201,168,76,.2);
+      border-radius:18px;padding:18px;
+      animation:fadeUp .9s ease .2s both;
+    }
+    .goal-title{font-size:clamp(.95rem,3.2vw,1.08rem);color:var(--gold-light);font-weight:800;margin-bottom:12px;text-align:center;}
+    .goal-input-row{display:flex;gap:9px;align-items:center;}
+    .goal-input{
+      flex:1;background:rgba(0,0,0,.3);border:1px solid rgba(201,168,76,.28);
+      border-radius:12px;padding:12px 14px;color:var(--cream);
+      font-family:'Tajawal',sans-serif;font-size:clamp(1rem,3.5vw,1.15rem);font-weight:700;
+      text-align:center;outline:none;direction:ltr;-webkit-appearance:none;
+    }
+    .goal-input:focus{border-color:var(--gold);box-shadow:0 0 0 2px rgba(201,168,76,.2);}
+    .goal-input::placeholder{color:rgba(245,238,216,.3);}
+    .goal-apply-btn{
+      background:linear-gradient(135deg,var(--gold-dark),var(--gold));
+      border:none;border-radius:12px;padding:12px 20px;
+      color:var(--text-dark);font-family:'Tajawal',sans-serif;
+      font-size:clamp(.95rem,3.2vw,1.08rem);font-weight:800;cursor:pointer;
+      white-space:nowrap;touch-action:manipulation;transition:opacity .15s;
+    }
+    .goal-apply-btn:active{opacity:.8;}
+    .goal-current{text-align:center;margin-top:10px;font-size:clamp(.85rem,2.8vw,.95rem);color:var(--gold);opacity:.75;font-weight:600;}
+
+    /* INSTALL BANNER */
+    #installBanner{
+      display:none;position:fixed;bottom:calc(14px + var(--sab));left:50%;
+      transform:translateX(-50%);
+      background:linear-gradient(135deg,var(--gold-dark),var(--gold));
+      color:var(--text-dark);padding:13px 20px;border-radius:18px;
+      font-family:'Tajawal',sans-serif;font-size:1rem;font-weight:700;
+      z-index:2000;box-shadow:0 8px 28px rgba(0,0,0,.5);
+      gap:10px;align-items:center;
+      width:calc(100% - 30px);max-width:400px;cursor:pointer;
+      animation:slideUp .4s ease;
+    }
+    #installBanner.show{display:flex;}
+    .install-close{background:rgba(0,0,0,.15);border:none;color:var(--text-dark);font-size:1rem;width:26px;height:26px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    @keyframes slideUp{from{transform:translateX(-50%) translateY(80px);opacity:0;}to{transform:translateX(-50%) translateY(0);opacity:1;}}
+
+    /* TOAST */
+    .toast{
+      position:fixed;top:calc(18px + var(--sat));left:50%;
+      transform:translateX(-50%) translateY(-90px);
+      background:linear-gradient(135deg,var(--gold-dark),var(--gold));
+      color:var(--text-dark);padding:12px 26px;border-radius:30px;
+      font-family:'Tajawal',sans-serif;font-size:clamp(.95rem,3vw,1.08rem);font-weight:800;
+      z-index:3000;box-shadow:0 8px 28px rgba(0,0,0,.45);
+      transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+      text-align:center;min-width:180px;max-width:calc(100vw - 36px);
+    }
+    .toast.show{transform:translateX(-50%) translateY(0);}
+
+    /* PARTICLES */
+    .particle{position:fixed;pointer-events:none;font-size:1.2rem;color:var(--gold);opacity:0;z-index:999;animation:floatUp 1.1s ease-out forwards;}
+    @keyframes floatUp{0%{opacity:1;transform:translateY(0) scale(1);}100%{opacity:0;transform:translateY(-120px) scale(1.6);}}
+
+    /* FOOTER */
+    .footer{text-align:center;font-family:'Scheherazade New',serif;font-size:clamp(.95rem,3.2vw,1.1rem);color:var(--cream);opacity:.45;line-height:2.1;}
+
+    /* ANIMATIONS */
+    @keyframes fadeDown{from{opacity:0;transform:translateY(-16px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+    .count-pop{animation:countPop .22s cubic-bezier(.34,1.56,.64,1);}
+    @keyframes countPop{from{transform:scale(1.5);}to{transform:scale(1);}}
+  </style>
+</head>
+<body>
+
+<div id="toast" class="toast"></div>
+
+<div id="installBanner">
+  <span>📲</span>
+  <div style="flex:1">حمّل التطبيق على هاتفك!</div>
+  <button class="install-close" id="installClose">✕</button>
+</div>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+    <div class="title">الصلاة على النبي ﷺ</div>
+    <div class="hadith">«مَنْ صَلَّى عَلَيَّ وَاحِدَةً، صَلَّى اللَّهُ عَلَيْهِ عَشْرًا»</div>
+  </div>
+
+  <div class="divider"><span>✦</span></div>
+
+  <!-- Salawat Text -->
+  <div class="salawat-card">
+    <div class="salawat-text">
+      <span class="hl">اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ،</span>
+      كَمَا صَلَّيْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ،
+      إِنَّكَ حَمِيدٌ مَجِيدٌ،
+      <span class="hl">اللَّهُمَّ بَارِكْ عَلَى مُحَمَّدٍ وَعَلَى آلِ مُحَمَّدٍ،</span>
+      كَمَا بَارَكْتَ عَلَى إِبْرَاهِيمَ وَعَلَى آلِ إِبْرَاهِيمَ،
+      إِنَّكَ حَمِيدٌ مَجِيدٌ
+    </div>
+  </div>
+
+  <!-- Counter -->
+  <div class="counter-wrap">
+
+    <div class="level-badge" id="levelBadge">
+      <span id="lvIcon">🌱</span>
+      <span id="lvName">مبتدئ</span>
+    </div>
+
+    <div class="progress-block">
+      <div class="progress-meta">
+        <span class="progress-label" id="progressLabel">٠ / ١٠٠ للهدف</span>
+        <span class="progress-pct" id="progressPct">٠٪</span>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+    </div>
+
+    <div class="btn-wrap">
+      <button class="tasbih-btn" id="tasbihBtn">
+        <span class="btn-icon">☪</span>
+        <span class="btn-count" id="counter">٠</span>
+        <span class="btn-label">اضغط للعد</span>
+      </button>
+    </div>
+
+    <div class="action-row">
+      <button class="action-btn" onclick="undoLast()">↩ تراجع</button>
+      <button class="action-btn danger" onclick="resetCounter()">↺ تصفير</button>
+    </div>
+
+  </div>
+
+  <!-- Goal input -->
+  <div class="goal-section">
+    <div class="goal-title">🎯 حدد هدفك</div>
+    <div class="goal-input-row">
+      <input class="goal-input" id="goalInput" type="number" min="1" max="999999" placeholder="أدخل رقم الهدف" inputmode="numeric"/>
+      <button class="goal-apply-btn" onclick="applyGoal()">تطبيق</button>
+    </div>
+    <div class="goal-current" id="goalCurrent">الهدف الحالي: ١٠٠ صلاة</div>
+  </div>
+
+  <div class="divider"><span>✦</span></div>
+
+  <div class="footer">
+    «إِنَّ مِنْ أَفْضَلِ أَيَّامِكُمْ يَوْمَ الْجُمُعَةِ،<br/>
+    فَأَكْثِرُوا عَلَيَّ مِنَ الصَّلَاةِ فِيهِ»
+  </div>
+
+</div>
+
+<script>
+const LEVELS = [
+  {min:0,    name:'مبتدئ',       icon:'🌱', next:100},
+  {min:100,  name:'مواظب',       icon:'⭐', next:300},
+  {min:300,  name:'مخلص',        icon:'🌙', next:500},
+  {min:500,  name:'محب النبي',   icon:'💫', next:1000},
+  {min:1000, name:'كثير الصلاة',icon:'👑', next:null},
+];
+const MILESTONES = [10,33,50,100,200,300,500,700,1000];
+const MM = {
+  10:'✨ عشر صلوات! بارك الله فيك',
+  33:'🌙 ثلاثة وثلاثون! جميل',
+  50:'⭐ خمسون! أحسنت',
+  100:'💫 مئة صلاة! اللهم صل على النبي ﷺ',
+  200:'🌟 مئتان! الله يبارك فيك',
+  300:'👑 ثلاثمئة! ما شاء الله',
+  500:'🏅 خمسمئة! أنت كثير الصلاة',
+  700:'🌙 سبعمئة! رائع',
+  1000:'👑 ألف صلاة! جزاك الله خيراً',
+};
+
+let count   = parseInt(localStorage.getItem('sw_count')||'0');
+let goal    = parseInt(localStorage.getItem('sw_goal') ||'100');
+let history = [];
+
+const toAr = n => String(n).replace(/\d/g, d=>'٠١٢٣٤٥٦٧٨٩'[d]);
+function getLevel(n){for(let i=LEVELS.length-1;i>=0;i--)if(n>=LEVELS[i].min)return LEVELS[i];return LEVELS[0];}
+
+function render(){
+  const lv=getLevel(count);
+  document.getElementById('counter').textContent = toAr(count);
+  document.getElementById('lvIcon').textContent  = lv.icon;
+  document.getElementById('lvName').textContent  = lv.name;
+  const pct = goal>0 ? Math.min(100,Math.round((count/goal)*100)) : 0;
+  document.getElementById('progressBar').style.width = pct+'%';
+  document.getElementById('progressPct').textContent = toAr(pct)+'٪';
+  document.getElementById('progressLabel').textContent = toAr(count)+' / '+toAr(goal)+' للهدف';
+  document.getElementById('goalCurrent').textContent = 'الهدف الحالي: '+toAr(goal)+' صلاة';
+}
+
+const PCHARS=['☪','✦','🌙','⭐','✨','❁'];
+function spawnParticle(x,y){
+  const el=document.createElement('div');el.className='particle';
+  el.textContent=PCHARS[Math.floor(Math.random()*PCHARS.length)];
+  el.style.left=(x+(Math.random()-.5)*70)+'px';
+  el.style.top=(y+(Math.random()-.5)*40)+'px';
+  document.body.appendChild(el);setTimeout(()=>el.remove(),1100);
+}
+function addRipple(btn,cx,cy){
+  const r=btn.getBoundingClientRect(),x=cx-r.left,y=cy-r.top;
+  const s=document.createElement('span');s.className='ripple';
+  s.style.cssText=`width:60px;height:60px;left:${x-30}px;top:${y-30}px`;
+  btn.appendChild(s);setTimeout(()=>s.remove(),620);
+}
+let toastTimer;
+function showToast(msg){
+  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2600);
+}
+
+function checkMilestone(newVal,prevVal){
+  MILESTONES.forEach(m=>{
+    if(prevVal<m&&newVal>=m){
+      const btn=document.getElementById('tasbihBtn');
+      btn.classList.add('milestone-glow');
+      for(let i=0;i<3;i++) setTimeout(()=>{
+        const r=document.createElement('div');r.className='pulse-ring';
+        btn.parentNode.appendChild(r);setTimeout(()=>r.remove(),850);
+      },i*200);
+      setTimeout(()=>btn.classList.remove('milestone-glow'),650);
+      showToast(MM[m]||'✨ أحسنت!');
+    }
+  });
+  if(goal>0 && prevVal<goal && newVal>=goal) showToast('🎉 أكملت هدفك! بارك الله فيك');
+}
+
+function increment(cx,cy){
+  const btn=document.getElementById('tasbihBtn');
+  const rect=btn.getBoundingClientRect();
+  addRipple(btn,cx||rect.left+rect.width/2,cy||rect.top+rect.height/2);
+  const prev=count;
+  count++;history.push(1);
+  const cEl=document.getElementById('counter');
+  cEl.classList.remove('count-pop');void cEl.offsetWidth;cEl.classList.add('count-pop');
+  if(count%10===0) for(let i=0;i<4;i++) spawnParticle(rect.left+rect.width/2,rect.top+rect.height/2);
+  if(navigator.vibrate) navigator.vibrate(28);
+  checkMilestone(count,prev);
+  localStorage.setItem('sw_count',count);
+  render();
+}
+
+function undoLast(){
+  if(!history.length) return;
+  count=Math.max(0,count-1);history.pop();
+  localStorage.setItem('sw_count',count);render();
+}
+function resetCounter(){
+  if(!confirm('تصفير العداد؟')) return;
+  count=0;history=[];
+  localStorage.setItem('sw_count',0);render();
+}
+
+function applyGoal(){
+  const inp=document.getElementById('goalInput');
+  const val=parseInt(inp.value);
+  if(!val||val<1){showToast('⚠️ أدخل رقماً صحيحاً');inp.focus();return;}
+  goal=val;
+  localStorage.setItem('sw_goal',val);
+  inp.value='';
+  render();
+  showToast('✅ الهدف: '+toAr(val)+' صلاة');
+}
+
+const mainBtn=document.getElementById('tasbihBtn');
+mainBtn.addEventListener('touchstart',e=>{
+  e.preventDefault();mainBtn.classList.add('pressed');
+  const t=e.touches[0];increment(t.clientX,t.clientY);
+},{passive:false});
+mainBtn.addEventListener('touchend',e=>{e.preventDefault();mainBtn.classList.remove('pressed');},{passive:false});
+mainBtn.addEventListener('click',e=>increment(e.clientX,e.clientY));
+document.addEventListener('keydown',e=>{
+  if(e.code==='Space'||e.code==='Enter'){e.preventDefault();increment();}
+  if(e.code==='Backspace') undoLast();
+});
+
+if('serviceWorker' in navigator){
+  const sw=`const C='sw-v3';self.addEventListener('install',e=>e.waitUntil(caches.open(C).then(c=>c.addAll(['./']))));self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request).catch(()=>r))));`;
+  navigator.serviceWorker.register(URL.createObjectURL(new Blob([sw],{type:'text/javascript'}))).catch(()=>{});
+}
+let deferredPrompt=null;
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault();deferredPrompt=e;
+  document.getElementById('installBanner').classList.add('show');
+  document.getElementById('installBanner').addEventListener('click',async()=>{
+    document.getElementById('installBanner').classList.remove('show');
+    if(deferredPrompt){deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;}
+  });
+});
+document.getElementById('installClose').addEventListener('click',e=>{
+  e.stopPropagation();document.getElementById('installBanner').classList.remove('show');
+});
+
+render();
+</script>
+</body>
+</html>
